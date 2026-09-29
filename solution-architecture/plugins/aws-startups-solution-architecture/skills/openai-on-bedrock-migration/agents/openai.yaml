@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenAI on Bedrock Migration"
+  short_description: "Migrate to OpenAI models on Amazon Bedrock (AWS)"
+  default_prompt: "Use $aws-startups-solution-architecture:openai-on-bedrock-migration to implement this application's least-disruptive supported Bedrock cutover. Strongly recommend optional modernization to the newest suitable supported OpenAI models with Responses API or Bedrock Managed Agents, implementing it only when in agreed scope and after the cutover checkpoint. Preserve its application framework, verify scoped changes, and distinguish local test evidence from live verification."

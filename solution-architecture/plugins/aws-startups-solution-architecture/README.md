@@ -2,7 +2,7 @@
 
 Technical AWS solutions for the problems startups actually get stuck on, from the AWS Startups Solution Architecture team.
 
-This plugin is **project scaffolding with two exemplar skills**. It exists so Startup SAs have somewhere to contribute the hard technical patterns they solve repeatedly in the field. If you are an SA with a pattern you have explained more than twice, it belongs here. See [what to contribute](#what-to-contribute).
+This plugin provides **technical architecture skills and reference patterns**. It exists so Startup SAs have somewhere to contribute the hard technical patterns they solve repeatedly in the field. If you are an SA with a pattern you have explained more than twice, it belongs here. See [what to contribute](#what-to-contribute).
 
 ## Scope
 
@@ -31,6 +31,26 @@ Two exemplars, each chosen because neither neighbor covers it and each is a recu
 | `agentcore-patterns`     | Running a judgment agent inside your own CI path: what it may block, measuring verdict stability before it gates anything, confidence banding, and warm-container staleness.                            |
 
 `agentcore-patterns` is also the layout exemplar: a thin `SKILL.md` router with the depth in `references/`. That is the intended shape for this plugin, since solution-architecture content is mostly reference material.
+
+### OpenAI on Amazon Bedrock
+
+The OpenAI-on-Bedrock workflows assess, implement, and independently review existing model integrations moving to OpenAI models on Amazon Bedrock (AWS). They preserve the application framework where supported, separate the least-disruptive traffic cutover from optional modernization, and check current official documentation before selecting a target integration.
+
+| Skill                                                                          | Purpose                                                                                                                         |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| [`openai-on-bedrock-assessment`](skills/openai-on-bedrock-assessment/SKILL.md) | Assess compatibility, identify blockers, and plan cutover and optional modernization without changing files.                    |
+| [`openai-on-bedrock-migration`](skills/openai-on-bedrock-migration/SKILL.md)   | Implement the agreed migration, verify each selected phase, and request an independent review.                                  |
+| [`openai-on-bedrock-review`](skills/openai-on-bedrock-review/SKILL.md)         | Review the integration against its agreed scope, current documentation, and actual verification evidence without editing files. |
+
+All three use the shared [OpenAI on Bedrock migration playbook](references/openai-on-bedrock-migration-playbook.md). The plugin includes OpenAI Developer Docs and AWS Knowledge MCP connections for current compatibility evidence. Local checks and live inference results are reported separately.
+
+Original author: Danny Wigg (`dwigg@openai.com`).
+
+For example, in Codex:
+
+```text
+Use $aws-startups-solution-architecture:openai-on-bedrock-assessment to assess this application's migration to OpenAI models on Amazon Bedrock. Do not change files.
+```
 
 ## What to contribute
 
