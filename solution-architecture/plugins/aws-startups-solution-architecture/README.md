@@ -39,10 +39,10 @@ The OpenAI-on-Bedrock workflows assess, implement, and independently review exis
 | Skill                                                                          | Purpose                                                                                                                         |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | [`openai-on-bedrock-assessment`](skills/openai-on-bedrock-assessment/SKILL.md) | Assess compatibility, identify blockers, and plan cutover and optional modernization without changing files.                    |
-| [`openai-on-bedrock-migration`](skills/openai-on-bedrock-migration/SKILL.md)   | Implement the agreed migration, verify each selected phase, and request an independent review.                                  |
+| [`openai-on-bedrock-migration`](skills/openai-on-bedrock-migration/SKILL.md)   | Implement the agreed migration, verify each selected phase, and invoke the dedicated review workflow.                           |
 | [`openai-on-bedrock-review`](skills/openai-on-bedrock-review/SKILL.md)         | Review the integration against its agreed scope, current documentation, and actual verification evidence without editing files. |
 
-All three use the shared [OpenAI on Bedrock migration playbook](references/openai-on-bedrock-migration-playbook.md). The plugin includes OpenAI Developer Docs and AWS Knowledge MCP connections for current compatibility evidence. Local checks and live inference results are reported separately.
+All three use the shared [OpenAI on Bedrock migration playbook](references/openai-on-bedrock-migration-playbook.md). General Bedrock service guidance is delegated to `Skill("aws-core:amazon-bedrock")` when available; otherwise the workflows use the playbook's official-documentation fallback. The migration workflow invokes `openai-on-bedrock-review` after verification and reports whether a fresh reviewer or self-review was used. The plugin includes OpenAI Developer Docs and AWS Knowledge MCP connections for current compatibility evidence. Local checks and live inference results are reported separately.
 
 Original author: Danny Wigg (`dwigg@openai.com`).
 
